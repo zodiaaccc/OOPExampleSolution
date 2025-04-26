@@ -1,85 +1,35 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include "main.h"
 
 class Student {
-
-public:
+private:
 	string name;
 	int age;
+	int countMark;
 	int* marks;
-	int countMarks;
 	bool alive;
-   //Default-constructor or construsctor without arguments
-	Student() {
-		name = "no name";
-		age = 13;
-		marks = nullptr;
-		countMarks = 0;
-		alive = true;
-	}
-	//construsctor with arguments
-	Student(string nm) {
-		name = nm;
-		age = 13;
-		mark = 4.0;
-		alive = true;
-	}
-	//canonical construsctor 
-	Student(string name, int age, double mark, bool alive) {
-		this ->name = name;
-		this->age = age;
-		this->alive = alive;
-		marks = new int[countMarks];
-		for (int i = 0; i < countMarks; i++)
-		{
-			marks[i] = 4;
-		}
-	}
 
-	//copy construsctor 
-	Student(const Student& student) {
-		//cout << "copycopycopy";
-		name = student.name;
-		age = student.age;
-		mark = student.mark;
-		alive = student.alive;
-	}
-	//Destuctor	
-	~Student() {
-	 //cout << "destructor.." << endl;
-		if (marks != nullptr) {
-			delete[] marks;
-		}
+	string getAllMarks();
 
-	}
-	string toString() {
-		string s = "Name: " + name + "\n";
-		s += "Age: " + to_string(age) + "\n";
-		s += "count of marks: " + to_string(countMarks) + "\n";
-		s += "Alive: ";
-		s += (alive ? "Yes" : "No");
-		return s + "\n";
-	}
-	string get_all_marks() {
-		if (countMarks == 0)
-		{
-			return "[]";
-		}
-		string s = "";
-		for (int i = 0; i < countMarks; i++)
-		{
-			string += to_string(marks[i]) + " ";
-		}
-		return s;
-	}
-	int getMark(int index) {
-		return index < 0 || index >= countMarks ? 0 : marks[index];
-	}
-	void setMark(int index) {
-		if (index >= 0 ||)
-		{
+public:
+	Student() : Student("no name", 13, 10, true) {}
+	Student(string name) : Student(name, 13, 0, true) {}
+	Student(string nm, int a) : Student(nm, a, 0, true) {}
+	Student(string name, int age, int countMark, bool alive);
+	Student(const Student& student) : Student(student.name, student.age,
+		student.countMark, student.alive) {}
+	~Student();
 
-		}
-	}
-};
+	string getName();
+	void setName(string name);
+	int getAge();
+	void setAge(int age);
+	int getCountMark();
+	int* getMarks();
+	bool isAlive();
+	void setAlive(bool alive);
+	int getMark(int index);
+	void setMark(int index, int mark);
+	double getAverageMark();
+
+	string toString();
+};	
