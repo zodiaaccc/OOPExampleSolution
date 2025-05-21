@@ -2,21 +2,22 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Queue
+
+class Stack
 {
 private:
-	int* queue;
+	int* stack;
 	int size;
 
 public:
-	Queue();
-	~Queue();
+	Stack();
+	~Stack();
 
-	void enqueue(int element);
-	int dequeue();
-	void clear();
+	void push(int element);
+	int pop();
 	int peek();
 	bool isEmpty();
 	int getSize();
+	void clear();
 	string toString();
 };

@@ -4,7 +4,7 @@
 class Manager
 {
 public:
-	 Group getBestStudents(Group group);
-	 Group getWorstStudents(Group group);
+	 /*Group getBestStudents(Group group);
+	 Group getWorstStudents(Group group);*/
 };
 
