@@ -1,18 +1,21 @@
 #pragma once
 #include "Figure.h"
 
-class Point : public Figure
-{
+class Point : public Figure {
 private:
-	double x, y;
+    double x, y;
 public:
-	Point() : x(0), y(0) {}
-	Point(double x, double y) : x(x), y(y) {}
-	Point(const Point& other) : x(other.x), y(other.y) {}
-	~Point() {}
+    Point();
+    Point(double x, double y);
 
-	 double getDistanceFrom—enter() const;
-	 
-	
+    double getX() const;
+    double getY() const;
+    void setX(double x);
+    void setY(double y);
+
+    double getPerimeter() const override;
+    double getArea() const override;
+    double getDistanceFromOrigin() const override;
+    std::string getInfo() const override;
 };
 

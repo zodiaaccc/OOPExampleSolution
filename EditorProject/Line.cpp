@@ -1,18 +1,20 @@
 #include "Line.h"
 
 
+Line::Line() : start(Point()), end(Point()) {}
+Line::Line(const Point& s, const Point& e) : start(s), end(e) {}
+
 double Line::getPerimeter() const {
-	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+    double dx = end.getX() - start.getX();
+    double dy = end.getY() - start.getY();
+    return std::sqrt(dx * dx + dy * dy);
 }
-double Line::getDistanceFrom—enter() const {
-	double midX = (x1 + x2) / 2;
-	double midY = (y1 + y2) / 2;
-	return sqrt(midX * midX + midY * midY);
+double Line::getArea() const { return 0.0; }
+double Line::getDistanceFromOrigin() const {
+    double d1 = start.getDistanceFromOrigin();
+    double d2 = end.getDistanceFromOrigin();
+    return std::min(d1, d2);
 }
-string Line::toString() const {
-	string msg = "";
-	msg = "first point:" + to_string(x1) +
-		", " + to_string(y1) + "\n second point:" +
-		to_string(x2) + ", " + to_string(y2);
-	return msg;
+string Line::getInfo() const {
+    return "Line from " + start.getInfo() + " to " + end.getInfo();
 }
