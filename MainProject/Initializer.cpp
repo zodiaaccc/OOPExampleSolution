@@ -5,16 +5,16 @@ void Initializer::init(Student*& list, int count) {
 		list = new Student[count];
 	}
 
-	string names[]{ "Anna", "Alex", "Vlad" , "Matvey" ,
+const string Initializer::names[]{ "Anna", "Alex", "Vlad" , "Matvey" ,
 		"Ivan" , "Timur", "Timofey", "Nikita", "Vladimir",
 		"Bogdan", "Rodion", "Alexey", "Daniil",
 		"Victor", "Kate", "Alice", "Maks" };
 
-	int minMark = 4;
-	int maxMark = 10;
+	static const int minMark = 4;
+	static const int maxMark = 10;
 
-	int minAge = 13;
-	int maxAge = 18;
+	static const int minAge = 13;
+	static const int maxAge = 18;
 
 	for (int i = 0; i < count; i++)
 	{

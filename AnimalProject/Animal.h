@@ -2,10 +2,19 @@
 class Animal
 {
 	public:
+		static int count;
 		string name;
 
-		Animal(string name) : name(name) {}
+		Animal() {
+			count++;
+		}
+		Animal(string name) : name(name) {
+			count++;
+		}
 
+		static int getCount() {
+			return count;
+		}
 		virtual void getVoice() {
 			cout << "..." << endl;
 		}
